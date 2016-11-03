@@ -1,0 +1,4 @@
+Rasmover
+--------
+Move (translate) manually raster layers, the result is a virtual
+raster (vrt) created using GDAL gdalbuildvrt tool.
