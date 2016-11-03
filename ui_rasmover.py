@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_rasmover.ui'
 #
-# Created: Mon Mar 24 11:52:16 2014
+# Created: Sun Jan 11 09:13:38 2015
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!

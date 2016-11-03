@@ -11,7 +11,7 @@
         
         Roberto (BobMaX) Angeletti   2014-03-24   idea and first version
         Giovanni Manghi              2014-12-17   fix installation on Linux, fix bug on Windows when using some projections
-        
+        Aldo Scorza					 2015-01-10	  fix MacOSX compatibility issue
  ***************************************************************************/
 
 /***************************************************************************
@@ -198,10 +198,16 @@ class PointTool(QgsMapTool):
             f5.close()
                  
             fileVRT = ("%s") %(out_folder + '/original.vrt')
-            
-            subprocess.call([ "gdalbuildvrt", fileVRT, "-input_file_list", listaRaster ])            
-            if _platform == "win32":
-               fileVRT = fileVRT.replace("/","\\")
+
+            if _platform == "darwin":
+				buildvrtPath = '/Library/Frameworks/GDAL.framework/Programs/' + 'gdalbuildvrt'
+				# subprocess.call([ "gdalbuildvrt", fileVRT, "-input_file_list", listaRaster ])
+ 				subprocess.call([ buildvrtPath, fileVRT, "-input_file_list", listaRaster ])
+            else:
+             
+            	subprocess.call([ "gdalbuildvrt", fileVRT, "-input_file_list", listaRaster ])            
+            	if _platform == "win32":
+               		fileVRT = fileVRT.replace("/","\\")
                         
             f1   = open(fileVRT, 'r')
 
